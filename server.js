@@ -1,10 +1,15 @@
-const http = require ("http")
+const http = require('http')
 
 const server = http.createServer((req,res)=>{
-    res.writeHead(200,{'Content-Type' : 'text/plain' })
+  if(req.url==='/' && req.method ==='GET'){
+    res.writeHead(200,{'Content-Type':'text/plain'})
     res.end("Hello world")
+  }else{
+    res.writeHead(404,{'Content-Type':'text/plain'})
+    res.end("Route is not valid")
+  }
 })
 
 server.listen(3000,()=>{
-    console.log('Server is running successfully')
+  console.log("Server is running successfully")
 })
