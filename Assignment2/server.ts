@@ -1,10 +1,11 @@
 import express from 'express';
 import type { Request, Response } from 'express';
+import db from './db';
+
 const app = express();
 
 app.use(express.json());
 
-import db from './db';
 
 app.get('/', (req: Request, res: Response) => {
   res.json({ message: "Hello world" });

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx ts-node Assignment2/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +16,6 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
-    "@types/mysql2": "^1.7.2",
     "@types/node": "^25.5.2",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.2"
