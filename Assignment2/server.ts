@@ -16,14 +16,14 @@ app.get("/myName", (req: Request, res: Response) => {
   res.json({ message: "On myName route" });
 });
 
-app.get("/get-users", (req: Request, res: Response) => {
-  db.query("SELECT * FROM users", (err: any, data: any) => {
-    if (err) {
-      res.status(500).json({ error: "Can't fetch users" });
-    } else {
-      res.json(data);
-    }
-  });
+app.get("/get-users", async(req: Request, res: Response) => {
+ try{
+  const [rows]= await db.query(`SELECT * FROM users`)
+  res.json(rows)
+ }catch(error:any){
+  console.log(error.message)
+  res.status(500).json({error:"fetching failed"})
+ }
 });
 
 const PORT =3000;
